@@ -1,0 +1,25 @@
+//
+//  UdacityGet.swift
+//  OnTheMap
+//
+//  Created by Dhruv Shah on 01/04/22.
+//
+
+import Foundation
+
+struct UdacityGETUserResponse: Codable {
+    
+    let firstName: String?
+    let lastName: String?
+    let imageURL: String?
+    let nickname: String?
+    
+    
+    private enum CodingKeys: String, CodingKey {
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case nickname
+        case imageURL = "_image_url"
+    }
+
+}
