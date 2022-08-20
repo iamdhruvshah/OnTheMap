@@ -146,7 +146,16 @@ class UdacityAPI {
     }
     
     class func postNewStudenLocation(newLatitude: Double, newLongitude: Double, locationString: String, locationMediaURL: String, completion: @escaping ([LocationResults], Error?) -> Void) {
-        let postRequestBody = StudentLocation(firstName: UserSession.userId, lastName: UserSession.firstName, uniqueKey: UserSession.userId, latitude: newLatitude, longitude: newLongitude, medialURL: locationString, mapString: locationMediaURL)
+        //let postRequestBody = StudentLocation(firstName: UserSession.userId, lastName: UserSession.firstName, uniqueKey: UserSession.userId, latitude: newLatitude, longitude: newLongitude, medialURL: locationString, mapString: locationMediaURL)
+        
+        var postRequestBody = StudentLocation()
+        postRequestBody.uniqueKey = UserSession.userId
+        postRequestBody.medialURL = locationString
+        postRequestBody.firstName = UserSession.firstName
+        postRequestBody.lastName = UserSession.lastName
+        postRequestBody.longitude = newLongitude
+        postRequestBody.latitude = newLatitude
+        postRequestBody.mapString = locationMediaURL
         
         var request = URLRequest(url: self.Endpoint.parseMapInformationEndpoint.url!)
         request.httpMethod = "POST"
