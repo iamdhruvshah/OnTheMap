@@ -19,6 +19,7 @@ struct Udacity: Codable {
 
 //MARK: New Locations
 struct StudentLocation: Codable {
+    var objectId: String?
     var firstName: String?
     var lastName: String?
     var uniqueKey: String?
