@@ -150,11 +150,11 @@ class UdacityAPI {
         
         var postRequestBody = StudentLocation()
         postRequestBody.uniqueKey = UserSession.userId
-        postRequestBody.medialURL = locationString
         postRequestBody.firstName = UserSession.firstName
         postRequestBody.lastName = UserSession.lastName
         postRequestBody.longitude = newLongitude
         postRequestBody.latitude = newLatitude
+        postRequestBody.medialURL = locationString
         postRequestBody.mapString = locationMediaURL
         
         var request = URLRequest(url: self.Endpoint.parseMapInformationEndpoint.url!)
