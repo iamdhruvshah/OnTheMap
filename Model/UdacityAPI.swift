@@ -8,9 +8,8 @@
 import Foundation
 import CoreLocation
 
-// MARK: API URL Endpoints
+//Api Url Endpoints
 class UdacityAPI {
-    
     enum Endpoint : String {
         case loginInformationEndpoint = "https://onthemap-api.udacity.com/v1/session"
         case getUserInformationEndpoint = "https://onthemap-api.udacity.com/v1/users/"
@@ -20,10 +19,9 @@ class UdacityAPI {
         var url : URL? {
             return URL(string: self.rawValue)
         }
-    
     }
  
-    //MARK: Logging In Network Calls
+    //Logging In Network Calls
     class func login(username: String, password: String, completion: @escaping (Bool, String?) -> Void) {
         let loginDetails = Udacity(username: username, password: password)
         let body = LogInStruct.init(udacity: loginDetails)
@@ -36,7 +34,6 @@ class UdacityAPI {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
           if error != nil {
-            // handle user end error
               return
           }
           let range = 5..<data!.count
@@ -67,7 +64,6 @@ class UdacityAPI {
     
     class func getUserInformationRequest(completion: @escaping (Bool, Error?) -> Void) {
         let url = URL(string: UdacityAPI.Endpoint.getUserInformationEndpoint.rawValue + "\(UserSession.userId)")
-        
         let urlRequest = URLRequest(url: url!)
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
           if error != nil {
@@ -92,7 +88,7 @@ class UdacityAPI {
         task.resume()
     }
     
-    //MARK: Logout Network Call
+    //Logout Network Call
     class func deleteSessionRequest() {
         let url = Endpoint.loginInformationEndpoint.url
         var request = URLRequest(url: url!)
@@ -118,7 +114,7 @@ class UdacityAPI {
         task.resume()
     }
     
-    //MARK: Map Pin Data Network Calls
+    //Map Pin Data Network Calls
     class func getMapDataRequest(completion: @escaping ([LocationResults], Error?) -> Void) {
         let url = Endpoint.getMapPointsURL.url
         let urlRequest = URLRequest(url: url!)
@@ -146,8 +142,6 @@ class UdacityAPI {
     }
     
     class func postNewStudenLocation(newLatitude: Double, newLongitude: Double, locationString: String, locationMediaURL: String, completion: @escaping ([LocationResults], Error?) -> Void) {
-        //let postRequestBody = StudentLocation(firstName: UserSession.userId, lastName: UserSession.firstName, uniqueKey: UserSession.userId, latitude: newLatitude, longitude: newLongitude, medialURL: locationString, mapString: locationMediaURL)
-        
         var postRequestBody = StudentLocation()
         postRequestBody.uniqueKey = UserSession.userId
         postRequestBody.firstName = UserSession.firstName

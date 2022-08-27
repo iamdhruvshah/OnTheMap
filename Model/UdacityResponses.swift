@@ -7,7 +7,7 @@
 
 import Foundation
 
-//MARK: Structures for the Responses Received from Udactiy API
+//Structures for the Responses Received from Udactiy Api
 struct PostSessionResponse: Codable {
     let account: AccountInformation
     let session: SessionInformation
@@ -37,7 +37,7 @@ struct GetUserInformationResponse: Codable {
 }
 
 
-//MARK: Nested Structures
+//Nested Structures
 struct AccountInformation: Codable {
     let registered: Bool
     let key: String

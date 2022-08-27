@@ -7,7 +7,7 @@
 
 import Foundation
 
-//MARK: User Details
+//User Details
 struct UserSession {
     static var userId: String = ""
     static var firstName: String = ""
@@ -15,7 +15,7 @@ struct UserSession {
     static var nickname: String = ""
 }
 
-//MARK: Locations
+//Locations
 struct MapPins {
     static var mapPins = [LocationResults]()
 }

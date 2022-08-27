@@ -9,7 +9,6 @@ import UIKit
 import CoreLocation
 
 class AddingLocationVC: UIViewController {
-
     let confirmingLocationSegueId = "confirmingLocationSegue"
     var newLocation = CLLocationCoordinate2D()
     
@@ -17,16 +16,15 @@ class AddingLocationVC: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var urlTextField: UITextField!
     
-    
-    //MARK: View Did Load
+    //View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.errorLabelView.isHidden = true
     }
 
-    //MARK: Location Button Pressed
+    //Location Button Pressed
     @IBAction func findLocationRequest(_ sender: Any) {
+        
         if self.urlTextField.text == nil || self.urlTextField.text == "" {
             self.showErrorAlert("Please insert a URL for this location")
         } else {
@@ -46,21 +44,21 @@ class AddingLocationVC: UIViewController {
         }
         
     }
-    //MARK: cancel
+    
+    //Cancel
     @IBAction func cancelNewLocation(_ sender: Any) {
         self.dismiss(animated: true, completion: {})
     }
     
-    //MARK: Error Alert
+    //Error Alert
     func showErrorAlert(_ message: String) {
         self.errorLabelView.text = "ERROR Occurred: \(message)"
         self.errorLabelView.isHidden = false
     }
     
-    //MARK: Segue
+    //Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == self.confirmingLocationSegueId {
-            
             let controller = segue.destination as! ConfirmingLocationVC
             controller.newLocation = self.newLocation
             controller.newLocationString = self.locationTextField.text ?? ""

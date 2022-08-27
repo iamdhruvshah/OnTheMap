@@ -13,7 +13,7 @@ class PinsTableVC: UITableViewController {
     var locations = [LocationResults]()
     var networkActivity = UIActivityIndicatorView()
     
-    //MARK: Loading functions
+    //Loading functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addActivityIndicator()
@@ -36,7 +36,7 @@ class PinsTableVC: UITableViewController {
         self.tableView.reloadData()
     }
     
-    // MARK: - Table view data source
+    //Table view data source
     func loadMapData() {
         self.networkActivity.startAnimating()
         UdacityAPI.getMapDataRequest(completion: { (studentLocationsArray, error) in
@@ -49,7 +49,7 @@ class PinsTableVC: UITableViewController {
         })
     }
     
-    //MARK: Table View Control
+    //Table View Control
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -71,19 +71,21 @@ class PinsTableVC: UITableViewController {
         }
     }
     
-    //MARK: IBActions
+    //IBActions
     @IBAction func refreshMapData(_ sender: Any) {
+        
         self.loadMapData()
         self.locations = MapPins.mapPins
         self.tableView.reloadData()
     }
     
     @IBAction func logout(_ sender: Any) {
+        
         UdacityAPI.deleteSessionRequest()
         self.dismiss(animated: true, completion: {})
     }
     
-    //MARK: Error Handling
+    //Error Handling
     func showDownloadFailure(_ message: String) {
         let alertVC = UIAlertController(title: "Download Failure", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))

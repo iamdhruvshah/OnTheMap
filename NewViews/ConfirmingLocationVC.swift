@@ -10,7 +10,7 @@ import MapKit
 
 class ConfirmingLocationVC: UIViewController, MKMapViewDelegate {
 
-    //MARK: Map Data
+    //Map Data
     var newLocation = CLLocationCoordinate2D()
     var newLocationString = ""
     var newLocationURL = URL(string: "")
@@ -43,7 +43,7 @@ class ConfirmingLocationVC: UIViewController, MKMapViewDelegate {
                 MapPins.mapPins = studentLocationsArray
             }
         })
-        
+
         self.dismiss(animated: true, completion: {})
     }
 }

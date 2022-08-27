@@ -7,7 +7,7 @@
 
 import Foundation
 
-//MARK: Body
+//Body
 struct LogInStruct: Codable {
     var udacity: Udacity
 }
@@ -17,7 +17,7 @@ struct Udacity: Codable {
     var password: String
 }
 
-//MARK: New Locations
+//New Locations
 struct StudentLocation: Codable {
     var objectId: String?
     var uniqueKey: String?

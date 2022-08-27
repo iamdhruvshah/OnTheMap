@@ -8,9 +8,11 @@
 import Foundation
 import UIKit
 
+//TableCell
 class TableCell: UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var subtitle: UILabel!
+    
 }
 

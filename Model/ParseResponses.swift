@@ -7,7 +7,7 @@
 
 import Foundation
 
-//MARK: Structures for Parse Responses
+//Structures for Parse Responses
 
 struct StudentLocationResponse: Codable {
     let results: [LocationResults]
