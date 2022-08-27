@@ -59,9 +59,9 @@ class PinsTableVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MapPinCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = "\(self.locations[indexPath.row].firstName) \(self.locations[indexPath.row].lastName)"
-        cell.detailTextLabel?.text = "\(self.locations[indexPath.row].mediaURL)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MapPinCell", for: indexPath) as! TableCell
+        cell.title.text = "\(self.locations[indexPath.row].firstName) \(self.locations[indexPath.row].lastName)"
+        cell.subtitle.text = "\(self.locations[indexPath.row].mediaURL)"
         return cell
     }
 
