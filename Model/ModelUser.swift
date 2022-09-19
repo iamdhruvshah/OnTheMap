@@ -2,7 +2,7 @@
 //  ModelUser.swift
 //  OnTheMap
 //
-//  Created by Dhruv Shah on 29/03/22.
+//  Created by Dhruv Shah
 //
 
 import Foundation

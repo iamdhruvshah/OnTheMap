@@ -2,7 +2,7 @@
 //  LoginViewController.swift
 //  OnTheMap
 //
-//  Created by Dhruv Shah on 22/03/22.
+//  Created by Dhruv Shah
 //
 
 import UIKit
@@ -60,7 +60,7 @@ class LoginVC: UIViewController {
     func showLoginFailure(message: String) {
         let alertVC = UIAlertController(title: "Login Failure", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        show(alertVC, sender: nil)
+        present(alertVC, animated: true)
         updateViewState(isViewClickable: true)
     }
     
@@ -69,7 +69,9 @@ class LoginVC: UIViewController {
         if success {
             UdacityAPI.getUserInformationRequest(completion: confirmLogIn(success:error:))
         } else {
-            showLoginFailure(message: errorMessage ?? "")
+            DispatchQueue.main.async {
+                self.showLoginFailure(message: errorMessage ?? "")
+            }
         }
     }
     

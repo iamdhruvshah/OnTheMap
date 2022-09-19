@@ -2,7 +2,7 @@
 //  UdacityAPI.swift
 //  OnTheMap
 //
-//  Created by Dhruv Shah on 01/04/22.
+//  Created by Dhruv Shah
 //
 
 import Foundation
@@ -14,7 +14,7 @@ class UdacityAPI {
         case loginInformationEndpoint = "https://onthemap-api.udacity.com/v1/session"
         case getUserInformationEndpoint = "https://onthemap-api.udacity.com/v1/users/"
         case parseMapInformationEndpoint = "https://onthemap-api.udacity.com/v1/StudentLocation"
-        case getMapPointsURL = "https://onthemap-api.udacity.com/v1/StudentLocation?limit=100&order=-updatedAt"
+        case getMapPointsURL = "https://onthemap-api.udacity.com/v1/StudentLocatINVALIDion?limit=100&order=-updatedAt"
         
         var url : URL? {
             return URL(string: self.rawValue)
@@ -34,6 +34,7 @@ class UdacityAPI {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
           if error != nil {
+              completion(false,error!.localizedDescription)
               return
           }
           let range = 5..<data!.count
@@ -142,14 +143,7 @@ class UdacityAPI {
     }
     
     class func postNewStudenLocation(newLatitude: Double, newLongitude: Double, locationString: String, locationMediaURL: String, completion: @escaping ([LocationResults], Error?) -> Void) {
-        var postRequestBody = StudentLocation()
-        postRequestBody.uniqueKey = UserSession.userId
-        postRequestBody.firstName = UserSession.firstName
-        postRequestBody.lastName = UserSession.lastName
-        postRequestBody.longitude = newLongitude
-        postRequestBody.latitude = newLatitude
-        postRequestBody.mediaURL = locationString
-        postRequestBody.mapString = locationMediaURL
+        let postRequestBody = StudentLocation(uniqueKey: UserSession.userId, firstName: UserSession.firstName, lastName: UserSession.lastName, mapString: locationString, mediaURL: locationMediaURL, latitude: newLatitude, longitude: newLongitude)
         
         var request = URLRequest(url: self.Endpoint.parseMapInformationEndpoint.url!)
         request.httpMethod = "POST"
@@ -161,6 +155,7 @@ class UdacityAPI {
             let task = session.dataTask(with: request) { data, response, error in
               if error != nil {
                 print(error?.localizedDescription ?? "")
+                  completion([],error)
                   return
               }
             }

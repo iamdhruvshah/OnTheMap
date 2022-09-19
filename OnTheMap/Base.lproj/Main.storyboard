@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -168,7 +168,7 @@
                                     <action selector="loginRequested:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fOA-R7-tFB"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="9Vm-sE-RMQ">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="9Vm-sE-RMQ">
                                 <rect key="frame" x="187" y="436" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="MZw-Ri-hdU"/>
@@ -387,6 +387,13 @@
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ByI-CF-DjA" userLabel="Activity Indicator">
+                                <rect key="frame" x="187" y="401" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="29q-R7-az0"/>
+                                    <constraint firstAttribute="height" constant="40" id="uzx-52-M5J"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RzW-E3-Zw6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -400,7 +407,9 @@
                             <constraint firstItem="XyQ-MQ-Pdg" firstAttribute="leading" secondItem="RzW-E3-Zw6" secondAttribute="leading" constant="106.5" id="KKe-TW-kW5"/>
                             <constraint firstItem="GeI-Gv-lCR" firstAttribute="top" secondItem="Nj7-7n-u43" secondAttribute="bottom" constant="30" id="Nzv-E7-Nwv"/>
                             <constraint firstItem="GeI-Gv-lCR" firstAttribute="leading" secondItem="RzW-E3-Zw6" secondAttribute="leading" constant="66" id="Owz-RF-o4k"/>
+                            <constraint firstItem="ByI-CF-DjA" firstAttribute="centerY" secondItem="a3j-BD-ku9" secondAttribute="centerY" id="RRJ-qz-ZLF"/>
                             <constraint firstItem="h1D-9v-PMH" firstAttribute="centerX" secondItem="a3j-BD-ku9" secondAttribute="centerX" id="YvB-xb-VYd"/>
+                            <constraint firstItem="ByI-CF-DjA" firstAttribute="centerX" secondItem="GeI-Gv-lCR" secondAttribute="centerX" id="YvH-7s-fhQ"/>
                             <constraint firstItem="xpE-c7-wJf" firstAttribute="centerX" secondItem="h1D-9v-PMH" secondAttribute="centerX" id="cGC-cO-9Tz"/>
                             <constraint firstItem="gio-nu-zAA" firstAttribute="leading" secondItem="RzW-E3-Zw6" secondAttribute="leading" constant="107" id="eab-Yx-bQC"/>
                             <constraint firstItem="RzW-E3-Zw6" firstAttribute="trailing" secondItem="Nj7-7n-u43" secondAttribute="trailing" constant="66" id="ex0-sr-Br2"/>
@@ -414,6 +423,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="MFb-RL-IdW"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="ByI-CF-DjA" id="hj2-00-Trk"/>
                         <outlet property="errorLabelView" destination="XyQ-MQ-Pdg" id="zfD-NV-yB4"/>
                         <outlet property="locationTextField" destination="Nj7-7n-u43" id="F9G-Ra-z2j"/>
                         <outlet property="urlTextField" destination="GeI-Gv-lCR" id="rjl-Ap-dof"/>
@@ -512,7 +522,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4FJ-7I-5jQ"/>
+        <segue reference="RFZ-O0-HyL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="LocationGlobe" width="52" height="67"/>

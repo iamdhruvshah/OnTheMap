@@ -2,7 +2,7 @@
 //  AddingLocationVC.swift
 //  OnTheMap
 //
-//  Created by Dhruv Shah on 22/03/22.
+//  Created by Dhruv Shah
 //
 
 import UIKit
@@ -15,6 +15,7 @@ class AddingLocationVC: UIViewController {
     @IBOutlet weak var errorLabelView: UILabel!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var urlTextField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     //View Did Load
     override func viewDidLoad() {
@@ -29,9 +30,11 @@ class AddingLocationVC: UIViewController {
             self.showErrorAlert("Please insert a URL for this location")
         } else {
             let geoCoder = CLGeocoder()
+            activityIndicator.startAnimating()
             geoCoder.geocodeAddressString(self.locationTextField.text ?? "", completionHandler: { (placemark, error) in
                 if error != nil {
                     self.showErrorAlert(error!.localizedDescription)
+                    self.activityIndicator.stopAnimating()
                 } else {
                     if let newPlacemark = placemark?.first, let newLoc = newPlacemark.location?.coordinate {
                         self.newLocation = newLoc

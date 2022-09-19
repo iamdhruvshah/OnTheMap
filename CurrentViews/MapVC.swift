@@ -2,7 +2,7 @@
 //  MapVC.swift
 //  OnTheMap
 //
-//  Created by Dhruv Shah on 22/03/22.
+//  Created by Dhruv Shah
 //
 
 import UIKit
@@ -12,7 +12,7 @@ class MapVC: UIViewController, MKMapViewDelegate {
     //Map Data Variables
     var annotations = [MKPointAnnotation]()
     let annotationReuseId = "pin"
-    var locations = [LocationResults]()
+    var locations =  StudentsData.sharedInstance().students
     
     //Outlets
     @IBOutlet weak var mapView: MKMapView!
@@ -106,7 +106,7 @@ class MapVC: UIViewController, MKMapViewDelegate {
     func showDownloadFailure(_ message: String) {
         let alertVC = UIAlertController(title: "Download Failure", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        show(alertVC, sender: nil)
+        present(alertVC, animated: true)
     }
 }
 

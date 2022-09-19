@@ -2,7 +2,7 @@
 //  OnTheMapTests.swift
 //  OnTheMapTests
 //
-//  Created by Dhruv Shah on 22/03/22.
+//  Created by Dhruv Shah
 //
 
 import XCTest

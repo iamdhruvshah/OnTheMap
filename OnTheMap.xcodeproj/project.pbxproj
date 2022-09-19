@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E17617F28CB579F00F572FC /* StudentsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E17617E28CB579F00F572FC /* StudentsData.swift */; };
 		1EAC999727E9BA210047D7B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC999627E9BA210047D7B2 /* AppDelegate.swift */; };
 		1EAC999927E9BA210047D7B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC999827E9BA210047D7B2 /* SceneDelegate.swift */; };
-		1EAC999B27E9BA210047D7B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAC999A27E9BA210047D7B2 /* ViewController.swift */; };
 		1EAC999E27E9BA210047D7B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EAC999C27E9BA210047D7B2 /* Main.storyboard */; };
 		1EAC99A027E9BA230047D7B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EAC999F27E9BA230047D7B2 /* Assets.xcassets */; };
 		1EAC99A327E9BA230047D7B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EAC99A127E9BA230047D7B2 /* LaunchScreen.storyboard */; };
@@ -47,10 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E17617E28CB579F00F572FC /* StudentsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsData.swift; sourceTree = "<group>"; };
 		1EAC999327E9BA210047D7B2 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EAC999627E9BA210047D7B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1EAC999827E9BA210047D7B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1EAC999A27E9BA210047D7B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1EAC999D27E9BA210047D7B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1EAC999F27E9BA230047D7B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1EAC99A227E9BA230047D7B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -127,7 +127,6 @@
 				1EAC999627E9BA210047D7B2 /* AppDelegate.swift */,
 				1EAC99C627E9BBCB0047D7B2 /* LoginVC.swift */,
 				1EAC999827E9BA210047D7B2 /* SceneDelegate.swift */,
-				1EAC999A27E9BA210047D7B2 /* ViewController.swift */,
 				1EAC999C27E9BA210047D7B2 /* Main.storyboard */,
 				1EAC999F27E9BA230047D7B2 /* Assets.xcassets */,
 				1EAC99A127E9BA230047D7B2 /* LaunchScreen.storyboard */,
@@ -175,6 +174,7 @@
 		1EAC99DA27F2EC830047D7B2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1E17617E28CB579F00F572FC /* StudentsData.swift */,
 				1EAC99DB27F2EC9D0047D7B2 /* ModelUser.swift */,
 				1EAC99DF27F2EE930047D7B2 /* RequestBodiesUdacity.swift */,
 				1EAC99E327F5F6370047D7B2 /* UdacityResponses.swift */,
@@ -321,10 +321,10 @@
 				1EAC99E427F5F6370047D7B2 /* UdacityResponses.swift in Sources */,
 				1EAC99D027E9C59D0047D7B2 /* PinsTableVC.swift in Sources */,
 				1EAC99E627F5F66C0047D7B2 /* ParseResponses.swift in Sources */,
-				1EAC999B27E9BA210047D7B2 /* ViewController.swift in Sources */,
 				1EAC99DC27F2EC9D0047D7B2 /* ModelUser.swift in Sources */,
 				1EAC999727E9BA210047D7B2 /* AppDelegate.swift in Sources */,
 				1EAC99CE27E9BCDE0047D7B2 /* MapVC.swift in Sources */,
+				1E17617F28CB579F00F572FC /* StudentsData.swift in Sources */,
 				1EE314D428ABC05B00D345CB /* TableCell.swift in Sources */,
 				1EAC99D727E9C6D90047D7B2 /* ConfirmingLocationVC.swift in Sources */,
 				1EAC999927E9BA210047D7B2 /* SceneDelegate.swift in Sources */,
@@ -503,6 +503,7 @@
 		1EAC99BE27E9BA230047D7B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -529,6 +530,7 @@
 		1EAC99BF27E9BA230047D7B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
