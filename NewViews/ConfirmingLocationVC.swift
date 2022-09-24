@@ -26,6 +26,11 @@ class ConfirmingLocationVC: UIViewController, MKMapViewDelegate {
         self.proposedAnnotation.subtitle = newLocationURL?.absoluteString
         self.confirmMapView.centerCoordinate = self.newLocation
         self.confirmMapView.addAnnotations([proposedAnnotation])
+        
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let region = MKCoordinateRegion(center: self.proposedAnnotation.coordinate, span: span)
+        self.confirmMapView.setRegion(region, animated: true)
+        self.confirmMapView.addAnnotations([proposedAnnotation])
     }
     
     func showAlert(_ message: String) {
@@ -37,13 +42,13 @@ class ConfirmingLocationVC: UIViewController, MKMapViewDelegate {
     }
 
     @IBAction func finishAndPost(_ sender: Any) {
-        UdacityAPI.postNewStudenLocation(newLatitude: self.newLocation.latitude, newLongitude: self.newLocation.longitude, locationString: self.newLocationString, locationMediaURL: self.newLocationURL?.absoluteString ?? "",  completion: {(results, error) in
+        UdacityAPI.postNewStudenLocation(newLatitude: self.newLocation.latitude, newLongitude: self.newLocation.longitude, locationString: self.newLocationString, locationMediaURL: self.newLocationURL?.absoluteString ?? "") { (results, error) in
             if error != nil {
-                self.showAlert(error!.localizedDescription)
-            } else {
-                self.dismiss(animated: true, completion: {})
-            }
-        })
+                  self.showAlert(error!.localizedDescription)
+              } else {
+                  self.dismiss(animated: true, completion: nil)
+              }
+          }
         
         UdacityAPI.getMapDataRequest(completion: { (studentLocationsArray, error) in
             if error != nil {
