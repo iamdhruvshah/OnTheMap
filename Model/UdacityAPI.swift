@@ -158,6 +158,7 @@ class UdacityAPI {
                   completion([],error)
                   return
               }
+                completion([],nil)
             }
             task.resume()
         } catch {

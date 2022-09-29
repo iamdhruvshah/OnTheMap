@@ -9,13 +9,13 @@ import UIKit
 import MapKit
 
 class ConfirmingLocationVC: UIViewController, MKMapViewDelegate {
-
+    
     //Map Data
     var newLocation = CLLocationCoordinate2D()
     var newLocationString = ""
     var newLocationURL = URL(string: "")
     var proposedAnnotation = MKPointAnnotation()
-
+    
     @IBOutlet weak var confirmMapView: MKMapView!
     
     override func viewDidLoad() {
@@ -40,24 +40,24 @@ class ConfirmingLocationVC: UIViewController, MKMapViewDelegate {
             self.present(alertVC, animated: true)
         }
     }
-
+    
     @IBAction func finishAndPost(_ sender: Any) {
         UdacityAPI.postNewStudenLocation(newLatitude: self.newLocation.latitude, newLongitude: self.newLocation.longitude, locationString: self.newLocationString, locationMediaURL: self.newLocationURL?.absoluteString ?? "") { (results, error) in
             if error != nil {
-                  self.showAlert(error!.localizedDescription)
-              } else {
-                  self.dismiss(animated: true, completion: nil)
-              }
-          }
-        
-        UdacityAPI.getMapDataRequest(completion: { (studentLocationsArray, error) in
-            if error != nil {
-                print(error?.localizedDescription ?? "")
+                self.showAlert(error!.localizedDescription)
             } else {
-                MapPins.mapPins = studentLocationsArray
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
             }
-        })
-
-        self.dismiss(animated: true, completion: {})
+            
+            UdacityAPI.getMapDataRequest(completion: { (studentLocationsArray, error) in
+                if error != nil {
+                    print(error?.localizedDescription ?? "")
+                } else {
+                    MapPins.mapPins = studentLocationsArray
+                }
+            })
+        }
     }
 }
